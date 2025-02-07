@@ -21,7 +21,7 @@ import { PharmaciesModule } from './pharmacies/pharmacies.module';
     PharmacyReviewModule,
     AuthModule,
     UsersModule,
-    MongooseModule.forRoot('mongodb://localhost/nest'),
+    MongooseModule.forRoot('mongodb+srv://rachidchaf2001:EL7NjIbf4n1Dk4ty@cluster0.bu5c5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'),
     PharmaciesModule,
   ],
 
