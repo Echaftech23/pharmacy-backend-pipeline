@@ -13,7 +13,7 @@ mongoose.set('strictQuery', true);
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
-        uri: configService.get<string>('MONGODB_URI'),
+        uri: configService.get<string>('mongodb+srv://rachidchaf2001:EL7NjIbf4n1Dk4ty@cluster0.bu5c5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'),
         useNewUrlParser: true,
         useUnifiedTopology: true,
       }),
