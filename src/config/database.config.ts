@@ -1,7 +1,7 @@
 import { registerAs } from '@nestjs/config';
 
 export default registerAs('database', () => ({
-  uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/pharmacy',
+  uri: 'mongodb+srv://rachidchaf2001:EL7NjIbf4n1Dk4ty@cluster0.bu5c5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0y',
   options: {
     dbName: 'pharmacy',
     autoIndex: true,
