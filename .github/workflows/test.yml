@@ -2,7 +2,7 @@ name: Tests
 
 on:
   push:
-    branches: [ "feat/PC-1-workflow-management" ]
+    branches: [ "feat/PC-2-deploy-workflow" ]
 
 jobs:
   tests:
