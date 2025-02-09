@@ -1,0 +1,36 @@
+name: Tests
+
+on:
+  push:
+    branches: [ "feat/PC-1-workflow-management" ]
+
+jobs:
+  tests:
+    name: app Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Tests
+        run: npm run test
+
+      - name: show success message
+        if: success()
+        run: echo "tests passed successfully"
+
+      - name: show failure message
+        if: failure()
+        run: echo "tests failed"
