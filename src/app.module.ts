@@ -8,7 +8,6 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { ErrorHandlerMiddleware } from './common/middlewares/error-handler.middleware';
 import { PharmacyReviewModule } from './pharmacy-review/pharmacy-review.module';
-import { MongooseModule } from '@nestjs/mongoose';
 import { PharmaciesModule } from './pharmacies/pharmacies.module';
 @Module({
   imports: [
@@ -21,7 +20,6 @@ import { PharmaciesModule } from './pharmacies/pharmacies.module';
     PharmacyReviewModule,
     AuthModule,
     UsersModule,
-    MongooseModule.forRoot('mongodb://localhost/nest'),
     PharmaciesModule,
   ],
 

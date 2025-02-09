@@ -2,13 +2,11 @@ name: CICD Pipeline
 
 on:
   push:
-    branches: [ "feat/PC-2-deploy-workflow" ]
+    branches: ['feat/PC-2-deploy-workflow']
 
 env:
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-
-  
 
 jobs:
   build:
@@ -35,7 +33,6 @@ jobs:
         if: failure()
         run: echo "Docker image build and push failed"
 
-  
   deploy:
     needs: build
     runs-on: self-hosted
@@ -44,12 +41,12 @@ jobs:
         run: |
           echo "Pulling latest Docker image..."
           sudo docker pull echaf/pharmacy-app-back:latest
-          
+
       - name: Stop Old Container
         run: |
           echo "Stopping old container if exists..."
           sudo docker rm -f pharmacy-app-back-container || true
-      
+
       - name: Run Docker Container
         id: run-container
         run: |
@@ -65,11 +62,11 @@ jobs:
         run: |
           echo "Fetching Docker container logs..."
           sudo docker logs pharmacy-app-back-container || true
-          
+
       - name: show success message
         if: success()
         run: echo "Deployment successful"
-          
+
       - name: Rollback on Deployment Failure
         if: failure()
         run: |
@@ -80,7 +77,7 @@ jobs:
             --name pharmacy-app-back-container \
             -e PORT=3001 \
             echaf/pharmacy-app-back:previous
-          
+
       - name: show failure message
         if: failure()
         run: echo "Deployment failed"
