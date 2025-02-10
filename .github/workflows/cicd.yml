@@ -58,6 +58,9 @@ jobs:
             -e JWT_EXPIRATION="${{ secrets.JWT_EXPIRATION }}" \
             echaf/pharmacy-app-back
 
+
+            
+
       - name: Log Docker Container Output
         run: |
           echo "Fetching Docker container logs..."
